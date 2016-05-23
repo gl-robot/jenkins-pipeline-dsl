@@ -18,7 +18,7 @@ job ('Build') {
         }
         maven { 
             goals('clean')
-            goals('deploy -Pbuild,image')    
+            goals('deploy -Ptests,image')    
             providedSettings('maven_settings')
     	}
     }
