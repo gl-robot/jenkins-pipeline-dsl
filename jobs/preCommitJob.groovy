@@ -10,7 +10,7 @@ job('PreCommit') {
         }
     }
     triggers {
-        pullRequest {
+        githubPullRequest {
             admin('anonymous')
             admin('aarutyunyan')
             cron('* * * * *')
