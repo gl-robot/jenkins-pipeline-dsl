@@ -14,11 +14,11 @@ job('Build') {
     steps {
         shell(readFileFromWorkspace('resources/tag_gen.sh')) 
 
-        /*configure { project ->
+        configure { project ->
             project / builders / EnvInjectBuilder {
                 propertiesFilePath("version.properties")
             }
-        }*/
+        }
 
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
