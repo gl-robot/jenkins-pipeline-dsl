@@ -19,11 +19,11 @@ job ('Build') {
             echo "TIME_STAMP=${TIME_STAMP}" >> version.properties
         ''')
 
-        configure { project ->
+        /*configure { project ->
             project / builders / EnvInjectBuilder {
                 propertiesFilePath("version.properties")
             }
-        }
+        }*/
 
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
