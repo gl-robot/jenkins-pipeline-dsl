@@ -15,7 +15,7 @@ job('Build') {
         shell(readFileFromWorkspace('resources/tag_gen.sh')) 
 
         configure { project ->
-            project / builders / EnvInjectBuilder {
+            project / builders / EnvInjectBuilder / info {
                 propertiesFilePath("version.properties")
             }
         }
