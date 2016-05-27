@@ -12,7 +12,7 @@ job('Build') {
         scm('* * * * *') 
     }   
     steps {
-        shell(readFileFromWorkSpace('resources/tag_gen.sh')) 
+        shell(readFileFromWorkSpace("resources/tag_gen.sh")) 
 
         /*configure { project ->
             project / builders / EnvInjectBuilder {
