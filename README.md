@@ -6,4 +6,6 @@
 * GitHub plugin
 * GitHub Pull Request Builder
 * Job DSL
-
+* Config File Provider Plugin
+* Environment Injector Plugin
+* Parameterized Trigger Plugin
