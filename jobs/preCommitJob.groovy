@@ -1,4 +1,4 @@
-job('PreCommit') {
+job('GridLibrary/PreCommit') {
     scm {
         git {
             remote {
