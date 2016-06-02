@@ -36,18 +36,17 @@ job('GridLibrary/Build') {
             providedSettings('maven_settings')
     	}
 
-        steps {
-            downstreamParametrized {
-                trigger('dockerBuildJob') {
-                    parameters {
-                        predefinedProps([
-                            BUILD_ID: "${BUILD_ID}",
-                            APP_VERSION: "${APP_VERSION}",
-                            TIME_STAMP: "${TIME_STAMP}"])
-                                        
-                    }
+
+        downstreamParametrized {
+            trigger('dockerBuildJob') {
+                parameters {
+                    predefinedProps([
+                        BUILD_ID: "${BUILD_ID}",
+                        APP_VERSION: "${APP_VERSION}",
+                        TIME_STAMP: "${TIME_STAMP}"
+                    ])
                 }
             }
         }
     }
-}
+}  
