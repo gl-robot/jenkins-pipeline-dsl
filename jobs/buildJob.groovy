@@ -18,13 +18,15 @@ job('GridLibrary/Build') {
     }   
     steps {
         shell(readFileFromWorkspace('resources/tag_gen.sh')) 
+    }
 
-        configure { project ->
-            project / builders / EnvInjectBuilder / info {
-                propertiesFilePath("version.properties")
-            }
+    configure { project ->
+        project / builders / EnvInjectBuilder << 'info' {
+            propertiesFilePath("version.properties")
         }
-        
+    }
+    
+    steps {    
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
             properties(newVersion: '${APP_VERSION}-${TIME_STAMP}-${BUILD_ID}')
