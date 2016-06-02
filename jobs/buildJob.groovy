@@ -24,7 +24,7 @@ job('GridLibrary/Build') {
                 propertiesFilePath("version.properties")
             }
         }
-        /*  */
+        
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
             properties(newVersion: '${APP_VERSION}-${TIME_STAMP}-${BUILD_ID}')
