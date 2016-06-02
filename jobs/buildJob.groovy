@@ -37,13 +37,13 @@ job('GridLibrary/Build') {
     	}
 
 
-        downstreamParametrized {
+        downstreamParameterized {
             trigger('dockerBuildJob') {
                 parameters {
                     predefinedProps([
-                        BUILD_ID: "${BUILD_ID}",
-                        APP_VERSION: "${APP_VERSION}",
-                        TIME_STAMP: "${TIME_STAMP}"
+                        BUILD_ID: '${BUILD_ID}',
+                        APP_VERSION: '${APP_VERSION}',
+                        TIME_STAMP: '${TIME_STAMP}'
                     ])
                 }
             }
