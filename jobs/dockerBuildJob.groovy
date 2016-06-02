@@ -1,3 +1,5 @@
 job('GridLibrary/dockerBuildJob') {
-    shell('echo kek')
+    steps {
+        shell('echo kek')
+    }
 }
