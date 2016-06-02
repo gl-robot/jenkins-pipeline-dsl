@@ -19,7 +19,7 @@ job('Build') {
                 propertiesFilePath("version.properties")
             }
         }
-
+        /*  */
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
             properties(newVersion: '${APP_VERSION}-${TIME_STAMP}-${BUILD_ID}')
@@ -30,5 +30,19 @@ job('Build') {
             goals('deploy -Ptests,image')    
             providedSettings('maven_settings')
     	}
+
+        steps {
+            downstreamParametrized {
+                trigger('dockerBuildJob') {
+                    parameters {
+                        predefinedProps([
+                            BUILD_ID: "${BUILD_ID}",
+                            APP_VERSION: "${APP_VERSION}",
+                            TIME_STAMP: "${TIME_STAMP}"])
+                                        
+                    }
+                }
+            }
+        }
     }
 }
