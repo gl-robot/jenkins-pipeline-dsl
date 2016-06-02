@@ -1,4 +1,9 @@
-job('Build') {
+folder('GridLibrary') {
+    displayName('Grid Library')
+    description('Folder for Grid Library Project')
+}
+
+job('GridLibrary/Build') {
     scm {
         git {
             remote {

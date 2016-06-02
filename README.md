@@ -4,8 +4,11 @@
 * CVS Plug-in
 * Git plugin
 * GitHub plugin
+* **Green Balls**
 * GitHub Pull Request Builder
 * Job DSL
 * Config File Provider Plugin
 * Environment Injector Plugin
 * Parameterized Trigger Plugin
+* Folders Plugin
+

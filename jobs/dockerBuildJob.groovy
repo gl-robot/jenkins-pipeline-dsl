@@ -1,3 +1,3 @@
-job("dockerBuildJob") {
+job('GridLibrary/dockerBuildJob') {
     shell("echo 'kek'")
 }
