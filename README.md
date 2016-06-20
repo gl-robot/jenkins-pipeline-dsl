@@ -11,4 +11,4 @@
 * Environment Injector Plugin
 * Parameterized Trigger Plugin
 * Folders Plugin
-
+* Repository Connector
