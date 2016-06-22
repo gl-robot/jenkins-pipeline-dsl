@@ -1,5 +1,10 @@
 
 job('dockerBuildJob') {
+    parameters {
+        stringParam('GL_APP_VERSION')
+        stringParam('GL_TIME_STAMP')
+        stringParam('GL_BUILD_ID')
+    }
     scm {
         git {
             remote {
@@ -11,8 +16,8 @@ job('dockerBuildJob') {
     } 
     steps {
         shell('''
-          export GDLIB_VERSION=${GL_APP_VESRION}-${GL_TIME_STAMP}-${GL_BUILD_ID}
-          export NEXUS_REPOSITORY=pre-releases
+          export GDLIB_VERSION=${GL_APP_VERSION}-${GL_TIME_STAMP}-${GL_BUILD_ID}
+          export NEXUS_REPOSITORY=build-all
           export DOCKER_REGISTRY=172.26.6.4:5000
           cd grid-library-containers
           bash provide_artifacts.sh
