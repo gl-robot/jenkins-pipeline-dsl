@@ -11,10 +11,11 @@ job('dockerBuildJob') {
     } 
     steps {
         shell('''
-          export GDLIB_VERSION=${APP_VESRION}-${TIME_STAMP}-${BUILD_ID}
+          export GDLIB_VERSION=${GL_APP_VESRION}-${GL_TIME_STAMP}-${GL_BUILD_ID}
           export NEXUS_REPOSITORY=pre-releases
           export DOCKER_REGISTRY=172.26.6.4:5000
-          bash grid-library-containers/provide_artifacts.sh
+          cd grid-library-containers
+          bash provide_artifacts.sh
           docker-compose up -d
         '''.stripIndent())
     }

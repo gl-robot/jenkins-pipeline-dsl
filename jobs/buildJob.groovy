@@ -39,9 +39,9 @@ job('build') {
             trigger('dockerBuildJob') {
                 parameters {
                     predefinedProps([
-                        BUILD_ID: '${BUILD_ID}',
-                        APP_VERSION: '${APP_VERSION}',
-                        TIME_STAMP: '${TIME_STAMP}'
+                        GL_BUILD_ID: '${BUILD_ID}',
+                        GL_APP_VERSION: '${APP_VERSION}',
+                        GL_TIME_STAMP: '${TIME_STAMP}'
                     ])
                 }
             }
