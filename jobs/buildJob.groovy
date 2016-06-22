@@ -29,7 +29,8 @@ job('build') {
 
         maven { 
             goals('clean')
-            goals('deploy -Ptests,image')    
+            goals('deploy')
+            properties(skipTests: true)
             providedSettings('maven_settings')
     	}
 
