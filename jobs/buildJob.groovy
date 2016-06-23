@@ -29,7 +29,7 @@ job('build') {
 
         maven { 
             goals('clean')
-            goals('deploy -P build')
+            goals('deploy -P test')
             properties(skipTests: true)
             providedSettings('maven_settings')
     	}
