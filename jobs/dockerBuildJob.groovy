@@ -21,7 +21,10 @@ job('dockerBuildJob') {
           export DOCKER_REGISTRY=172.26.6.4:5000
           cd grid-library-containers
           bash provide_artifacts.sh
-          docker-compose up -d
-        '''.stripIndent())
+          docker-compose build 
+        '''.stripIndent())       
+    }
+    publishers {
+      buildPipelineTrigger('deployJob')
     }
 }
