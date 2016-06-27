@@ -1,7 +1,4 @@
 job('preCommit') {
-    wrappers {
-        preBuildCleanup()
-    }
     scm {
         git {
             remote {
