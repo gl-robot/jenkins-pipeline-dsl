@@ -1,5 +1,8 @@
 job('deployJob') {
-  steps {
-    shell('echo kek')
-  }
+    wrappers {
+        preBuildCleanup()
+    }
+    steps {
+        shell('echo kek')
+    }
 }
