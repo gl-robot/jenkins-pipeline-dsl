@@ -1,4 +1,7 @@
 job('build') {
+    wrappers {
+        preBuildCleanup()
+    }
     scm {
         git {
             remote {

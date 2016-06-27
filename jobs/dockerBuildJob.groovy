@@ -1,5 +1,7 @@
-
 job('dockerBuildJob') {
+    wrappers {
+        preBuildCleanup()
+    }
     parameters {
         stringParam('GL_APP_VERSION')
         stringParam('GL_TIME_STAMP')

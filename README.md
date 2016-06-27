@@ -12,3 +12,5 @@
 * Parameterized Trigger Plugin
 * Folders Plugin
 * Repository Connector
+* Jenkins Workspace Cleanup Plugin
+* Build Pipeline Plugin
