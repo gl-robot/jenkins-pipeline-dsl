@@ -10,7 +10,7 @@
 * Config File Provider Plugin
 * Environment Injector Plugin
 * Parameterized Trigger Plugin
-* Folders Plugin
-* Repository Connector
+* ~~Folders Plugin~~
+* ~~Repository Connector~~
 * Jenkins Workspace Cleanup Plugin
 * Build Pipeline Plugin
