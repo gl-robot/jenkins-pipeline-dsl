@@ -11,16 +11,12 @@ job('build') {
     triggers {
         scm('* * * * *') 
     }   
-    steps {
-        shell(readFileFromWorkspace('resources/tag_gen.sh')) 
-    }
-
-    configure { project ->
-        project / builders / EnvInjectBuilder << 'info' {
-            propertiesFilePath("version.properties")
+    wrappers {
+        environmentVariables {
+            groovy(readFileFromWorkspace('resources/inject_env_vars.groovy'))
         }
-    }
-    
+    }    
+
     steps {    
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
