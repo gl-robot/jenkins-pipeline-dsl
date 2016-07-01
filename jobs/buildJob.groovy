@@ -15,7 +15,7 @@ job('build') {
         environmentVariables {
             groovy(readFileFromWorkspace('resources/inject_env_vars.groovy'))
         }
-    }    
+    }
 
     steps {    
         maven {
