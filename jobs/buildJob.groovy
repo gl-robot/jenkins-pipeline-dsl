@@ -5,7 +5,7 @@ job('build') {
                 github('griddynamics/books-elibrary', 'ssh')
                 credentials('github-cicd-key')
             }
-            branch('dev')
+            branch('cicd-replatforming')
         }
     }   
     triggers {

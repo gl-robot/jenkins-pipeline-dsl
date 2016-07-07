@@ -24,6 +24,13 @@ job('dockerBuildJob') {
           cd grid-library-containers
           bash provide_artifacts.sh
           docker-compose build 
+          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
+          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
+          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
+          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
+          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
+          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
+          DOCKER_HOST=172.26.6.12 docker-compose up -d
         '''.stripIndent())       
     }
     publishers {
