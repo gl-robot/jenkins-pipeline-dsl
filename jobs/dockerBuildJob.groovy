@@ -14,7 +14,7 @@ job('dockerBuildJob') {
                 github('griddynamics/books-elibrary', 'ssh')
                 credentials('github-cicd-key')
             }
-            branch('cicd-replatforming')
+            branch('dev-alternate')
         }
     } 
     steps {
@@ -26,13 +26,6 @@ job('dockerBuildJob') {
           bash provide_artifacts.sh
           docker-compose build 
           docker-compose up -d
-          docker tag gdlib-app:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
-          docker tag gdlib-db:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
-          docker tag gdlib-images:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
-          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
-          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
-          docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
-          DOCKER_HOST=172.26.6.12 docker-compose up -d
         '''.stripIndent())       
     }
     publishers {

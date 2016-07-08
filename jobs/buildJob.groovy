@@ -5,7 +5,7 @@ job('build') {
                 github('griddynamics/books-elibrary', 'ssh')
                 credentials('github-cicd-key')
             }
-            branch('cicd-replatforming')
+            branch('dev-alternate')
         }
     }   
     triggers {
@@ -17,7 +17,22 @@ job('build') {
         }
     }    
 
-    steps {    
+    steps {   
+        shell('''
+            cd grid-library-ui/dev/
+            npm install -g gulp 
+            npm install 
+            npm rebuild node-sass
+            npm install -g bower
+            bower --allow-root install -g
+            gulp config --apiUrl=sdb-backup.summer-practice-2014.c4gd-orion.griddynamics.net \
+                        --apiPort=8080 \
+                        --imgUrl=sdb-backup.summer-practice-2014.c4gd-orion.griddynamics.net \
+                        --imgPort=8003
+            gulp reload
+            gulp prod
+
+        '''.stripIndent())
         maven {
             goals('org.codehaus.mojo:versions-maven-plugin:2.1:set')
             properties(newVersion: '${APP_VERSION}-${TIME_STAMP}-${BUILD_ID}')
