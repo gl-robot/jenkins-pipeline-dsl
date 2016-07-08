@@ -1,4 +1,5 @@
 job('dockerBuildJob') {
+    label('staging')
     wrappers {
         preBuildCleanup()
     }
@@ -24,9 +25,10 @@ job('dockerBuildJob') {
           cd grid-library-containers
           bash provide_artifacts.sh
           docker-compose build 
-          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
-          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
-          docker tag ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
+          docker-compose up -d
+          docker tag gdlib-app:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
+          docker tag gdlib-db:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
+          docker tag gdlib-images:${GDLIB_VERSION} ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
           docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-app:${GDLIB_VERSION}
           docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-db:${GDLIB_VERSION}
           docker push ${DOCKER_REGISTRY}/gridlibrary/gdlib-images:${GDLIB_VERSION}
