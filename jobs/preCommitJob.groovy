@@ -18,6 +18,6 @@ job('preCommit') {
         }
     }
     steps {
-      	maven('clean install -DskipTests')
+      	maven('clean install')
     }
 }
