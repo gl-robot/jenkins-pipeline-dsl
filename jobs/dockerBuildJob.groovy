@@ -14,7 +14,7 @@ job('dockerBuildJob') {
                 github('griddynamics/books-elibrary', 'ssh')
                 credentials('github-cicd-key')
             }
-            branch('dev-alternate')
+            branch('dev')
         }
     } 
     steps {
