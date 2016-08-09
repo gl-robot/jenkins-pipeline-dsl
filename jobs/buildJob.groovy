@@ -25,9 +25,9 @@ job('build') {
             npm rebuild node-sass
             npm install -g bower
             bower --allow-root install -g
-            gulp config --apiUrl=sdb-backup.summer-practice-2014.c4gd-orion.griddynamics.net \
+            gulp config --apiUrl=prodlike.gridlibrary.c4gd-orion.griddynamics.net \
                         --apiPort=8080 \
-                        --imgUrl=sdb-backup.summer-practice-2014.c4gd-orion.griddynamics.net \
+                        --imgUrl=prodlike.gridlibrary.c4gd-orion.griddynamics.net \
                         --imgPort=8003
             gulp reload
             gulp prod
