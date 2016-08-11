@@ -28,7 +28,7 @@ job('build') {
             gulp config --apiUrl=prodlike.gridlibrary.c4gd-orion.griddynamics.net \
                         --apiPort=8080 \
                         --imgUrl=prodlike.gridlibrary.c4gd-orion.griddynamics.net \
-                        --imgPort=8003
+                        --imgPort=8080
             gulp reload
             gulp prod
 
