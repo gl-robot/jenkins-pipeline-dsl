@@ -29,6 +29,7 @@ job('dockerBuildJob') {
           cd grid-library-containers
           bash provide_artifacts.sh
           docker-compose build 
+          docker-compose stop
           docker-compose up -d
         '''.stripIndent())       
     }
