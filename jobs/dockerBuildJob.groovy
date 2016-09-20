@@ -31,6 +31,12 @@ job('dockerBuildJob') {
           docker-compose build 
           docker-compose stop
           docker-compose up -d
+          
+          for c in $(docker ps -aq); do
+            if [ timeout 30 docker wait $c -ne 0 ]; then 
+                docker logs $c
+            fi
+          done
         '''.stripIndent())       
     }
     publishers {
