@@ -32,12 +32,10 @@ job('dockerBuildJob') {
           docker-compose stop
           docker-compose up -d
           
-          for c in $(docker ps -aq); do
-            if [ timeout 30 docker wait $c -ne 0 ]; then 
-                docker logs $c
-            fi
-          done
-        '''.stripIndent())       
+          if [[ $(timeout 30 docker wait gridlibrarycontainers_app_1 -ne 0 ]]; then 
+              docker logs gridlibrarycontainers_app_1
+          fi
+          '''.stripIndent())       
     }
     publishers {
         buildPipelineTrigger('deployJob') {
