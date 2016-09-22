@@ -37,15 +37,4 @@ job('dockerBuildJob') {
           fi
           '''.stripIndent())       
     }
-    publishers {
-        buildPipelineTrigger('deployJob') {
-            parameters {
-                predefinedProps([
-                    GL_BUILD_ID: '${GL_BUILD_ID}',
-                    GL_APP_VERSION: '${GL_APP_VERSION}',
-                    GL_TIME_STAMP: '${GL_TIME_STAMP}'
-                ])  
-            } 
-        }
-    }
 }
