@@ -31,8 +31,6 @@ job('dockerBuildJob') {
           docker-compose build 
           docker-compose stop
           docker-compose up -d
-
-          bash -c "timeout 30 docker wait gridlibrarycontainers_app_1; if [ $? -ne 0 ]; then docker logs gridlibrarycontainers_app_1; fi"
         '''.stripIndent())       
     }
 }
