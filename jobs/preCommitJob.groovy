@@ -13,6 +13,7 @@ job('preCommit') {
         githubPullRequest {
             admin('anonymous')
             admin('aarutyunyan')
+            admin('nbelonogov')
             cron('* * * * *')
             permitAll()
             extensions {
