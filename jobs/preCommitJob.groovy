@@ -18,7 +18,7 @@ job('preCommit') {
             permitAll()
             extensions {
                 commitStatus {
-                    statusUrl('http://jenkins.gridlibrary.c4gd-orion.griddynamics.net:8080/')
+                    statusUrl('http://jenkins.gridlibrary.c4gd-orion.griddynamics.net:8080/job/preCommit/${BUILD_NUMBER}/')
                 }
             }
         }
